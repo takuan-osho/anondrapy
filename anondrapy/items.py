@@ -8,7 +8,9 @@
 import scrapy
 
 
-class AnondrapyItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class ArticleByDate(scrapy.Item):
+    """
+    日付ページを起点とした記事を表すItem
+    """
+    title = scrapy.Field()
+    body = scrapy.Field()
