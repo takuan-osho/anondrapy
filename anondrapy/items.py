@@ -10,7 +10,9 @@ import scrapy
 
 class ArticleByDate(scrapy.Item):
     """
-    日付ページを起点とした記事を表すItem
+    Item for each article from date page
     """
     title = scrapy.Field()
+    link = scrapy.Field()
+    key = scrapy.Field()
     body = scrapy.Field()
