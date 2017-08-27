@@ -8,6 +8,7 @@ from anondrapy.items import ArticleByDate
 
 ANOND_BASE_URL = 'https://anond.hatelabo.jp'
 
+
 class AnondSpider(scrapy.Spider):
     name = 'anond'
     allowed_domains = ['anond.hatelabo.jp']
@@ -15,7 +16,6 @@ class AnondSpider(scrapy.Spider):
 
     def parse(self, response):
         for section in response.css('.body>.section'):
-            title = self.extract_title_from_section(section)
 
             item = ArticleByDate()
             item['title'] = self.extract_title_from_section(section)
