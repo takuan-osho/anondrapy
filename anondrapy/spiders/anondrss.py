@@ -4,7 +4,7 @@ import scrapy
 import feedparser
 from bs4 import BeautifulSoup
 
-from anondrapy.items import ArticleByDate
+from anondrapy.items import Article
 
 ANOND_BASE_URL = 'https://anond.hatelabo.jp'
 
@@ -18,7 +18,7 @@ class AnondRSSSpider(scrapy.Spider):
         entries = feedparser.parse(response.text)['entries']
 
         for entry in entries:
-            item = ArticleByDate()
+            item = Article()
             item['title'] = entry['title']
             item['link'] = entry['link']
             item['key'] = item['link'].strip(ANOND_BASE_URL).strip('/')

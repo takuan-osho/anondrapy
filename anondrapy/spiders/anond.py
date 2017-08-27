@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 import scrapy
 from bs4 import BeautifulSoup
 
-from anondrapy.items import ArticleByDate
+from anondrapy.items import Article
 
 ANOND_BASE_URL = 'https://anond.hatelabo.jp'
 
@@ -17,7 +17,7 @@ class AnondSpider(scrapy.Spider):
     def parse(self, response):
         for section in response.css('.body>.section'):
 
-            item = ArticleByDate()
+            item = Article()
             item['title'] = self.extract_title_from_section(section)
             item['link'] = self.extract_link_from_section(section)
             item['key'] = item['link'].strip(ANOND_BASE_URL).strip('/')

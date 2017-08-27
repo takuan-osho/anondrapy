@@ -8,7 +8,7 @@
 import scrapy
 
 
-class ArticleByDate(scrapy.Item):
+class Article(scrapy.Item):
     """
     Item for each article from date page
     """
