@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from urllib.parse import urljoin
 
-import scrapy
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
 from bs4 import BeautifulSoup
 
 from anondrapy.items import Article
@@ -9,12 +10,16 @@ from anondrapy.items import Article
 ANOND_BASE_URL = 'https://anond.hatelabo.jp'
 
 
-class AnondSpider(scrapy.Spider):
+class AnondSpider(CrawlSpider):
     name = 'anond'
     allowed_domains = ['anond.hatelabo.jp']
     start_urls = ['https://anond.hatelabo.jp']
 
-    def parse(self, response):
+    rules = (
+        Rule(LinkExtractor(restrict_css='.pager-l'), callback='parse_articles', follow=True),
+    )
+
+    def parse_articles(self, response):
         for section in response.css('.body>.section'):
 
             item = Article()
