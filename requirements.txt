@@ -27,6 +27,7 @@ PyDispatcher==2.0.5
 Pygments==2.2.0
 pyOpenSSL==17.2.0
 queuelib==1.4.2
+feedparser==5.2.1
 Scrapy==1.4.0
 service-identity==17.0.0
 simplegeneric==0.8.1
