@@ -1,23 +1,17 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [dev-packages]
-
 ipython = "*"
 
-
 [packages]
-
 scrapy = "==1.5.1"
 "beautifulsoup4" = "==4.6.0"
 feedparser = "==5.2.1"
 typing = "==3.6.2"
-
+scrapy-mongodb = "*"
 
 [requires]
-
 python_version = "3.7"
