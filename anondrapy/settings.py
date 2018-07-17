@@ -64,9 +64,15 @@ DOWNLOAD_DELAY = 1
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
+ITEM_PIPELINES = {
 #    'anondrapy.pipelines.AnondrapyPipeline': 300,
-#}
+    'scrapy_mongodb.MongoDBPipeline': 300,
+}
+
+MONGODB_URI = 'mongodb://localhost:27017'
+MONGODB_DATABASE = 'anond'
+MONGODB_COLLECTION = 'items'
+MONGODB_UNIQUE_KEY = 'key'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
