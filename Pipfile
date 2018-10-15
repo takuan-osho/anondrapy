@@ -12,6 +12,7 @@ scrapy = "==1.5.1"
 feedparser = "==5.2.1"
 typing = "==3.6.2"
 scrapy-mongodb = "*"
+pymongo = "*"
 
 [requires]
 python_version = "3.7"
